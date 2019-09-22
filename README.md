@@ -1,6 +1,6 @@
-## Welcome to GitHub Pages
+## Welcome to vfasteng: We work differently at "v"! It's all about speed and efficency.
 
-You can use the [editor on GitHub](https://github.com/vfasteng/vfasteng.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+can use the [editor on GitHub](https://github.com/vfasteng/vfasteng.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
