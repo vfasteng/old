@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+        <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+		<script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script> 
+		<script src="https://rawgit.com/chenzlabs/auto-detect-controllers/master/dist/aframe-auto-detect-controllers-component.min.js"></script> 
+		<script src="https://unpkg.com/aframe-thumb-controls-component@1.1.0/dist/aframe-thumb-controls-component.min.js"></script>
+		
+		<script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script> 
+	  	<script src="https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js"></script> 
+	  	<script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+		<script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+		<script src="https://unpkg.com/aframe-event-set-component@4.0.1/dist/aframe-event-set-component.min.js"></script>
+	 	<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/components/sphere-collider.js"></script>
+		<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.controls.js"></script>
+		<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.js"></script>
+		<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.loaders.js"></script>
+		<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.misc.js"></script>
+		<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.pathfinding.js"></script>
+		<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.primitives.js"></script>
+		<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/components/grab.js"></script>
+		
+	
+	    <script src="script.js"></script>
+		<style src="aframe.css"></style>
+    </head>
+    <body>
+        <a-scene>
+            <!--Build our background and our floor-->
+            <a-plane static-body position="0 0 -4" rotation="-90 0 0" width="100" height="100" mass="2" color="#7BC8A4"></a-plane>
+            <a-sky color="#ECECEC"></a-sky>
+			
+			<!-- If detected, will use built-in controller model (e.g. Oculus Touch or Vive) -->
+    		<a-entity id="lefthand" auto-detect-controllers="hand:left"></a-entity>
+    		<a-entity id="righthand" auto-detect-controllers="hand:right"></a-entity>
+	
+            
+            <!--Build three obstacles as static bodies so we can stand on them-->
+            <a-box dynamic-body position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+            <a-cylinder dynamic-body position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+            
+            <!--Build one dynamic body - a soccer ball we can play with-->
+            <a-sphere id="theball" dynamic-body position="4 1.25 -5" radius="0.5" color="tomato" mass="1"></a-sphere>
+            
+            <!--Make a player/camera entity, and give it the attributes we need it to have in order control camera with mouse, movement with WASD, and jump with spacebar-->
+            <a-entity class="player" id="player"
+                camera
+                jump-ability
+                universal-controls
+                kinematic-body
+                position="1 4 2">
+            </a-entity>
+        </a-scene>
+    </body>
+    <script type="text/javascript" src="script.js"></script>
+</html>
